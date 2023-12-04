@@ -8,6 +8,15 @@ import List from '../app/components/List'
 // QUERY... = TANDO NA TELA OU NÃO, RETORNA TRUE.
 
 // Esse describe a gente coloca qual componente estamos fazendo o teste.
+
+
+// OBSERVAÇÕES SOBRE TESTES !!!
+
+// Cada teste deve testar apenas uma funcionalidade.
+// Evite pegar os componentes pelo texto, deixa seu teste sensível demais, o que pode resultar em falhas desnecessárias. 
+// A DICA É A SEGUINTE: Use o data-testId.
+
+
 describe('List Component', () => {
   it('should render items', () => {
     render(<List />)
@@ -45,10 +54,3 @@ describe('List Component', () => {
     await waitForElementToBeRemoved(() => screen.getByText('Miguel')) // O método espera um elemento DOM para deletar.
   }) 
 })
-
-
-// OBSERVAÇÕES SOBRE TESTES !!!
-
-// Cada teste deve testar apenas uma funcionalidade.
-// Evite pegar os componentes pelo texto, deixa seu teste sensível demais, o que pode resultar em falhas desnecessárias. 
-// A DICA É A SEGUINTE: Use o data-testId.
