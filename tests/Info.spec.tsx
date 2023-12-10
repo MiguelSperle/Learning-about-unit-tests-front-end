@@ -27,7 +27,7 @@ describe('Info Component', () => {
 
     userEvent.click(buttonElement) // Simulando o click.
 
-    // Esperando achar um data-testid e que tenha um text content tal.
+    // Esperando achar um data-testid que tenha tal texto correspondente.
     expect(await screen.findByTestId('user_id')).toHaveTextContent(userMockData.id) 
     expect(await screen.findByTestId('user_name')).toHaveTextContent(userMockData.name)
     expect(await screen.findByTestId('user_location')).toHaveTextContent(userMockData.location)
