@@ -19,13 +19,13 @@ export const AuthContextTest = createContext<PropsContextTest>({
 
 export const ContextTestProvider = ({
   children,
-  initialTodos
+  MockTodos
 }: {
   children: React.ReactNode,
-  initialTodos?: string[]
+  MockTodos?: string[]
    
 }) => {
-  const [todos, setTodos] = useState<string[]>(initialTodos || [])
+  const [todos, setTodos] = useState<string[]>(MockTodos || [])
 
 
   function addTodo(newTodo: string){

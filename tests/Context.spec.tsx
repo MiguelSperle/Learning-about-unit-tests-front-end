@@ -8,18 +8,18 @@ import { ContextTestProvider, AuthContextTest } from '../context/context';
 
 describe('Context Component', () => {
   it('should be able to add a todo on the state', async () => {
-    const fakerTodo = 'todo-1'
+    const MockTodo = 'todo-1'
 
     render(
       <ContextTestProvider>
         <AuthContextTest.Consumer>
           {({ addTodo, todos }) => (
            <div>
-             <button data-testid="add_button" onClick={() => addTodo(fakerTodo)}>Adicionar tarefa</button>
+             <button data-testid="add_button" onClick={() => addTodo(MockTodo)}>Adicionar tarefa</button>
              {todos.map((todo) => {
               return (
                 <div key={todo}>
-                  <p data-testid="faker_todo" >{todo}</p>
+                  <p data-testid="fake_todo" >{todo}</p>
                 </div>
               )
              })}
@@ -32,15 +32,15 @@ describe('Context Component', () => {
     await userEvent.click(buttonElement)
     
  
-    expect(screen.getByText('todo-1')).toBeInTheDocument()
-    expect(screen.getByTestId('faker_todo')).toHaveTextContent(fakerTodo)
+    expect(screen.getByText(MockTodo)).toBeInTheDocument()
+    expect(screen.getByTestId('fake_todo')).toHaveTextContent(MockTodo)
   }) 
 
   it('should be able to remove a todo on the state', async () => { // REVER
-    const initialTodos = ['todo-1', 'todo-2', 'todo-3']
+    const MockTodos = ['todo-1', 'todo-2', 'todo-3']
 
     render(
-      <ContextTestProvider initialTodos={initialTodos}>
+      <ContextTestProvider MockTodos={MockTodos}>
         <AuthContextTest.Consumer>
         {({ removeTodo, todos }) => (
            todos.map((todo) => {
@@ -55,6 +55,7 @@ describe('Context Component', () => {
         </AuthContextTest.Consumer>
       </ContextTestProvider>
     ) 
+    
     const removeButton = screen.getAllByTestId('delete_button')
     userEvent.click(removeButton[0])
 
