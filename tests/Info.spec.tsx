@@ -14,7 +14,7 @@ type UserMockProps = {
 describe('Info Component', () => {
   it('should render user information', async () => {
 
-    const userMockData: UserMockProps = { // Mock Data, format is object, but if was more complex I will can create a JSON.
+    const userMockData: UserMockProps = { // Mock Data, format is object, but if was more complex I could create a JSON.
       id: faker.string.uuid(),
       name: faker.internet.displayName(),
       login: faker.internet.userName(),
@@ -25,7 +25,7 @@ describe('Info Component', () => {
 
     const buttonElement = screen.getByTestId('button_show')
 
-    userEvent.click(buttonElement) // Simulando o click.
+    await userEvent.click(buttonElement) // Simulando o click.
 
     // Esperando achar um data-testid que tenha tal texto correspondente.
     expect(await screen.findByTestId('user_id')).toHaveTextContent(userMockData.id) 

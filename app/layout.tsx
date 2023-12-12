@@ -1,4 +1,5 @@
 import '@/styles/global.css'
+import { ContextTestProvider } from 'context/context'
 
 export default function RootLayout({
   children,
@@ -7,7 +8,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ContextTestProvider>
+          {children}
+        </ContextTestProvider>
+      </body>
     </html>
   )
 }

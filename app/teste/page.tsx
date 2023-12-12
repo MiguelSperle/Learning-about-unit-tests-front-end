@@ -1,3 +1,15 @@
+'use client'
+
+import { AuthContextTest } from "context/context"
+import { useContext } from "react"
+
 export default function Teste(){
-  return <h1>Hello There</h1>
+  const { addTodo, todos, setTodos } = useContext(AuthContextTest)
+  
+  return (
+    <div>
+      <button onClick={() => addTodo('tESTE')}>ADICIONAR</button>
+      
+    </div>
+  )
 }
